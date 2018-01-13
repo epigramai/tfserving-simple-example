@@ -1,5 +1,4 @@
 import tensorflow as tf
-# from save_serving import save_serving
 from tensorflow.python.saved_model import builder as saved_model_builder
 from tensorflow.python.saved_model import signature_constants
 from tensorflow.python.saved_model import signature_def_utils
@@ -36,8 +35,6 @@ with tf.Session() as sess:
         inputs={placeholder_name: model_input},
         outputs={operation_name: model_output},
         method_name=signature_constants.PREDICT_METHOD_NAME)
-    # Expected prediction signature method_name to be one of
-    # {tensorflow/serving/predict, tensorflow/serving/classify, tensorflow/serving/regress}
 
     builder = saved_model_builder.SavedModelBuilder('./models/simple_model/1')
 
